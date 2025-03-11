@@ -75,14 +75,7 @@ WSGI_APPLICATION = 'site_scraper.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_db',
-        'USER': 'darshan',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+     "default": dj_database_url.config(default=os.getenv("postgresql://darshan:Gjy3SE2TU3ZcT3kty5426b2XYJVKVHmX@dpg-cv84rvd2ng1s73a1m5n0-a/site_scraper_db"))
 }
 
 
