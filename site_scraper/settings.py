@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,8 +76,10 @@ WSGI_APPLICATION = 'site_scraper.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://darshan:Gjy3SE2TU3ZcT3kty5426b2XYJVKVHmX@dpg-cv84rvd2ng1s73a1m5n0-a/site_scraper_db")
+
 DATABASES = {
-     "default": dj_database_url.config(default=os.getenv("postgresql://darshan:Gjy3SE2TU3ZcT3kty5426b2XYJVKVHmX@dpg-cv84rvd2ng1s73a1m5n0-a/site_scraper_db"))
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
 }
 
 
